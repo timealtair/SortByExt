@@ -7,6 +7,7 @@ How to use:
 
 --> Windows:
 
-1. run "compile.cmd"
-2. run "AddToContextMenu.exe" and give admin priveleges
-3. right click on directiry or empty space of explorer and choose option 'SortByExt'
+1. download repository and unzip
+2. run "compile.cmd"
+3. run "AddToContextMenu.exe" and give admin priveleges
+4. right click on directiry or empty space of explorer and choose option 'SortByExt'
