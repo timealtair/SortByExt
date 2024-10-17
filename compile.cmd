@@ -40,39 +40,32 @@ Move dist\SortByExt.exe SortByExt.exe
 Move dist\AddToContextMenu.exe AddToContextMenu.exe
 
 :: Step 12: Clean the mess
+setlocal
 
-setlocal enabledelayedexpansion
+:: Define the directories and files to delete
+set "dirs=python-3.13.0-embed-amd64 build dist"
+set "files=AddToContextMenu.exe.spec SortByExt.exe.spec"
 
-:: Specify the files to keep
-set keepFile1=SortByExt.exe
-set keepFile2=AddToContextMenu.exe
-set keepFile3=compile.cmd
-
-:: Specify the directory to keep
-set keepDir=source
-
-:: Loop through all files in the current directory
-for %%f in (*) do (
-    if not "%%f"=="%keepFile1%" (
-        if not "%%f"=="%keepFile2%" (
-            if not "%%f"=="%keepFile3%" (
-                echo Deleting file %%f
-                if exist "%%f" (
-                    del /q "%%f" 2>nul
-                )
-            )
-        )
+:: Delete specified directories
+for %%d in (%dirs%) do (
+    if exist "%%d" (
+        rmdir /s /q "%%d"
+        echo Deleted directory: %%d
+    ) else (
+        echo Directory not found: %%d
     )
 )
 
-:: Loop through all directories and delete them
-for /d %%d in (*) do (
-    if not "%%d"=="%keepDir%" (  :: Check only against the directory to keep
-        echo Deleting directory %%d
-        rd /s /q "%%d"
+:: Delete specified files
+for %%f in (%files%) do (
+    if exist "%%f" (
+        del /q "%%f"
+        echo Deleted file: %%f
+    ) else (
+        echo File not found: %%f
     )
 )
 
-echo "Done, click 'Enter' to exit."
+endlocal
 
 pause
