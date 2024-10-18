@@ -36,11 +36,11 @@ python-3.13.0-embed-amd64\Scripts\PyInstaller.exe --onefile --name SortByExt.exe
 :: Create an executable for AddToContextMenu.py
 python-3.13.0-embed-amd64\Scripts\PyInstaller.exe --onefile --name AddToContextMenu.exe --icon=../source/sort_by_ext.ico --noconsole ../source/add_to_contex_menu.py
 
-:: Move SortByExt.exe to bas directory
+:: Move SortByExt.exe to base directory
 
 Move dist\SortByExt.exe ..\SortByExt.exe
 
-:: Move SortByExt.exe to bas directory
+:: Move SortByExt.exe to base directory
 
 Move dist\AddToContextMenu.exe ..\AddToContextMenu.exe
 
