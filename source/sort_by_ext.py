@@ -18,7 +18,6 @@ def move_with_backup(src, dst):
             count += 1
 
         shutil.move(src, dst)
-        # print(f"File moved to {dst}")
 
     except Exception as e:
         print(f"Skipping due to error: {e}")
